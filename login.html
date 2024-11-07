@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSN Student Dashboard Login</title>
+  <style>
+    /* Basic styling for the login page */
+    h1 {
+      background-color: white;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #173ea8;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 500px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #dacb07;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    input[type="email"],
+    input[type="password"] {
+      width: 95%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    input[type="submit"] {
+      display: block;
+      margin: auto;
+      width: 20%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      text-align: center;
+    }
+    .success, .error {
+      display: none;
+      font-size: 0.9em;
+    }
+    .success {
+      color: green;
+    }
+    .error {
+      color: red;
+    }
+    /* Styling for the register link */
+    .link {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 0.9em;
+      color: blue;
+      cursor: pointer;
+    }
+  </style>
+  <h1><a href="login.html"><img src="CSN_Logo.png" height="100"></a></h1>
+</head>
+<body>
+
+<div class="container">
+  <h2>CSN Student Dashboard Login</h2>
+  <form id="loginForm">
+    <div class="form-group">
+      <label for="loginEmail">Student Email</label>
+      <input type="email" id="loginEmail" name="loginEmail" required>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required>
+    </div>
+    <input type="submit" value="Log In">
+    <p class="success" id="loginSuccess">Login successful! Redirecting to your dashboard...</p>
+    <p class="error" id="loginError">Incorrect login credentials. Please try again.</p>
+  </form>
+  
+  <!-- Link with register-link class, no href needed due to JavaScript handling -->
+  <div class="link" id="register-link">
+    <p>Don't have an account? <span class="link">Register here</span>.</p>
+  </div>
+
+  <!-- Link with admin-link class, no href needed due to JavaScript handling -->
+  <div class="link" id="admin-link">
+    <p><span class="link">Admin login</span></p>
+  </div>
+</div>
+
+<script>
+  // JavaScript code to handle the form submission
+  document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form submission
+    const email = document.getElementById('loginEmail').value;
+    const password = document.getElementById('password').value;
+    
+    // Mock validation for login credentials
+    if (email === "@student.csn.edu" && password === "password123") {
+      document.getElementById('loginSuccess').style.display = 'block';
+      document.getElementById('loginError').style.display = 'none';
+    } else {
+      document.getElementById('loginError').style.display = 'block';
+    }
+  });
+
+  // JavaScript to redirect to register.html when .register-link is clicked
+  document.querySelectorAll('#register-link .link').forEach(link => {
+    link.addEventListener('click', function() {
+      window.location.href = 'register.html';
+    });
+  });
+
+  // JavaScript to redirect to register.html when .register-link is clicked
+  document.querySelectorAll('#admin-link .link').forEach(link => {
+    link.addEventListener('click', function() {
+      window.location.href = 'admin-login.html';
+    });
+  });
+</script>
+
+</body>
+</html>

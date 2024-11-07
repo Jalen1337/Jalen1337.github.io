@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSN Student Dashboard Registration</title>
+  <style>
+    /* Basic styling for the registration page layout */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #173ea8;
+      margin: 0;
+      padding: 0;
+    }
+    /* Center container with styling */
+    .container {
+      max-width: 500px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #dacb07;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    /* Styling for each form group, label, and input field */
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    input[type="text"],
+    input[type="email"] {
+      width: 95%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    input[type="submit"] {
+      display: block;
+      margin: auto;
+      width: 20%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      text-align: center;
+    }
+    /* Success and error message styling */
+    .success, .error {
+      display: none;
+      font-size: 0.9em;
+    }
+    .success {
+      color: green;
+    }
+    .error {
+      color: red;
+    }
+    /* Styling for the login link text */
+    .login-link {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 0.9em;
+      color: blue;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>CSN Student Dashboard Registration</h2>
+  
+  <!-- Registration form with fields for name, NSHE number, and email -->
+  <form id="registrationForm">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <!-- Input field for the user's name -->
+      <input type="text" id="name" name="name" required>
+    </div>
+    <div class="form-group">
+      <label for="nshe">NSHE Number</label>
+      <!-- Input field for the user's NSHE number -->
+      <input type="text" id="nshe" name="nshe" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Student Email</label>
+      <!-- Input field for the user's email -->
+      <input type="email" id="email" name="email" required>
+    </div>
+    <!-- Submit button for the form -->
+    <input type="submit" value="Register">
+    <!-- Success and error messages for form submission feedback -->
+    <p class="success" id="registrationSuccess">Registration successful! Please check your email for confirmation.</p>
+    <p class="error" id="registrationError">Registration failed. Please try again.</p>
+  </form>
+  
+  <!-- Div to hold the login link that redirects to login.html when clicked -->
+  <div class="login-link">
+    <p>Already have an account? <span class="login-link">Log in here</span>.</p>
+  </div>
+</div>
+
+<script>
+  // Event listener for the form submission
+  document.getElementById('registrationForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevents the form from submitting normally
+    const name = document.getElementById('name').value;
+    const nshe = document.getElementById('nshe').value;
+    const email = document.getElementById('email').value;
+    
+    // Mock validation for registration fields
+    // If all fields have values, show the success message and hide any errors
+    if (name && nshe && email) {
+      document.getElementById('registrationSuccess').style.display = 'block';
+      document.getElementById('registrationError').style.display = 'none';
+    } else {
+      // If validation fails, show error message and hide the success message
+      document.getElementById('registrationError').style.display = 'block';
+    }
+  });
+
+  // Add click event listeners to all elements with the 'login-link' class
+  document.querySelectorAll('.login-link').forEach(link => {
+    link.addEventListener('click', function() {
+      // Redirect to login.html when clicked
+      window.location.href = 'login.html';
+    });
+  });
+</script>
+
+</body>
+</html>
