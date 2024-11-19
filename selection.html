@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="examregistration.css">\
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <title>CSN Student Exam Selection</title>
+</head>
+
+<body>
+  <div class="container">
+    <h2>CSN Student Exam Selection</h2>
+    <form>
+      <!-- Subject Dropdown -->
+      <label for="subject">Subject:</label>
+      <select name="subject" id="subject" required>
+        <option value="" disabled selected>Please select a subject</option>
+        <option value="math">Math</option>
+        <option value="english">English</option>
+        <option value="science">Science</option>
+      </select>
+      <br><br>
+
+      <!-- Campus Dropdown -->
+      <label for="campus">Campus:</label>
+      <select name="campus" id="campus" required>
+        <option value="" disabled selected>Please select a campus</option>
+        <option value="charleston">Charleston</option>
+        <option value="cheyenne">Cheyenne</option>
+        <option value="henderson">Henderson</option>
+      </select>
+      <br><br>
+
+      <!-- Calendar -->
+      <label for="date">Date:</label>
+      <div class="calendar">
+        <div class="header">
+          <button id="prevButton">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <div class="monthYear" id="monthYear"></div>
+          <button id="nextButton">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+        <div class="days">
+          <div class="day">Sun</div>
+          <div class="day">Mon</div>
+          <div class="day">Tue</div>
+          <div class="day">Wed</div>
+          <div class="day">Thu</div>
+          <div class="day">Fri</div>
+          <div class="day">Sat</div>
+        </div>
+        <div class="dates" id="dates"></div>
+      </div>
+
+      <!-- Campus Dropdown -->
+      <label for="time">Time:</label>
+      <select name="time" id="time" required>
+        <option value="" disabled selected>Please select a time</option>
+        <option value="9am">09:00</option>
+        <option value="11am">11:00</option>
+        <option value="1pm">13:00</option>
+      </select>
+      <br><br>
+
+      <!-- Submit Button -->
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+
+  <script src="calendar.js"></script>
+</body>
