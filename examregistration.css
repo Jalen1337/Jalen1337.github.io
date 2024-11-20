@@ -1,9 +1,9 @@
 body {
   font-family: Arial, sans-serif;
+  background-color: #173ea8;
   margin: 0;
   padding: 0;
   position: relative; /* Establish a positioning context for pseudo-elements and absolute positioning */
-  background-color: #173ea8; /* Background color */
 }
 
 body::before {
@@ -28,10 +28,11 @@ body::after {
   z-index: 11; /* Ensures it stays above the white border */
 }
 
-.top-left-image {
-  position: fixed; /* Makes the image stick to the top left corner */
+.top-center-image {
+  position: fixed; /* Makes the image stick to the top center */
   top: 5px; /* Aligns with the borders */
-  left: 5px; /* Slight padding from the edges */
+  left: 50%; /* Centers the image horizontally */
+  transform: translateX(-50%); /* Corrects the offset for perfect centering */
   width: 40px; /* Adjust the size of the image */
   height: 40px; /* Keep proportions or adjust as needed */
   z-index: 12; /* Ensures it stays on top of the borders */
@@ -81,7 +82,8 @@ input[type="submit"] {
   text-align: center;
 }
 
-.success, .error {
+.success,
+.error {
   display: none;
   font-size: 0.9em;
 }
