@@ -44,9 +44,12 @@
     const password = document.getElementById('password').value;
     
     // Mock validation for login credentials
-    if (email === "@student.csn.edu" && password === "password123") {
+    if (email === "guest@student.csn.edu" && password === "password123") {
       document.getElementById('loginSuccess').style.display = 'block';
-      document.getElementById('loginError').style.display = 'none';
+      // Redirect to dashboard.html after a short delay
+      setTimeout(() => {
+        window.location.href = 'dashboard.html';
+      }, 2000);
     } else {
       document.getElementById('loginError').style.display = 'block';
     }
@@ -82,4 +85,3 @@
     justify-content: center;
     align-items: center;
   }
-
