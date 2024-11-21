@@ -17,8 +17,8 @@
   <h2>CSN Student Dashboard Login</h2>
   <form id="loginForm">
     <div class="form-group">
-      <label for="loginEmail">Student Email</label>
-      <input type="email" id="loginEmail" name="loginEmail" required>
+      <label for="loginUsername">Username</label>
+      <input type="text" id="loginUsername" name="loginUsername" required>
     </div>
     <div class="form-group">
       <label for="password">Password</label>
@@ -40,11 +40,11 @@
   // JavaScript code to handle the form submission
   document.getElementById('loginForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent form submission
-    const email = document.getElementById('loginEmail').value;
+    const username = document.getElementById('loginUsername').value;
     const password = document.getElementById('password').value;
     
     // Mock validation for login credentials
-    if (email === "guest@student.csn.edu" && password === "password123") {
+    if (username === "guest7890" && password === "1234567890") {
       document.getElementById('loginSuccess').style.display = 'block';
       // Redirect to dashboard.html after a short delay
       setTimeout(() => {
