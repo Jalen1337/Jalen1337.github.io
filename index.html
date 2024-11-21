@@ -4,70 +4,80 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="examregistration.css">
-  <title>CSN Student Dashboard Registration</title>
+  <title>CSN Student Dashboard Login</title>
 </head>
-<body>
-
-<div class="container">
-  <h2>CSN Student Dashboard Registration</h2>
   
-  <!-- Registration form with fields for name, NSHE number, and email -->
-  <form id="registrationForm">
+<div class="container">
+  <h2>CSN Student Dashboard Login</h2>
+  <form id="loginForm">
     <div class="form-group">
-      <label for="name">Name</label>
-      <!-- Input field for the user's name -->
-      <input type="text" id="name" name="name" required>
+      <label for="loginUsername">Username</label>
+      <input type="text" id="loginUsername" name="loginUsername" required>
     </div>
     <div class="form-group">
-      <label for="nshe">NSHE Number</label>
-      <!-- Input field for the user's NSHE number -->
-      <input type="text" id="nshe" name="nshe" required>
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required>
     </div>
-    <div class="form-group">
-      <label for="email">Student Email</label>
-      <!-- Input field for the user's email -->
-      <input type="email" id="email" name="email" required>
-    </div>
-    <!-- Submit button for the form -->
-    <input type="submit" value="Register">
-    <!-- Success and error messages for form submission feedback -->
-    <p class="success" id="registrationSuccess">Registration successful! Please check your email for confirmation.</p>
-    <p class="error" id="registrationError">Registration failed. Please try again.</p>
+    <input type="submit" value="Log In">
+    <p class="success" id="loginSuccess">Login successful! Redirecting to your dashboard...</p>
+    <p class="error" id="loginError">Incorrect login credentials. Please try again.</p>
   </form>
   
-  <!-- Div to hold the login link that redirects to login.html when clicked -->
-  <div class="login-link">
-    <p>Already have an account? <span class="login-link">Log in here</span>.</p>
-  </div>
+  <!-- Link with register-link class, no href needed due to JavaScript handling -->
+      <ul>
+          <li><a href="Register.html">Don't have an account? Register here.</a></li>
+          <li><a href="admin-login.html">Admin login here.</a></li>
+      </ul>
 </div>
 
 <script>
-  // Event listener for the form submission
-  document.getElementById('registrationForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevents the form from submitting normally
-    const name = document.getElementById('name').value;
-    const nshe = document.getElementById('nshe').value;
-    const email = document.getElementById('email').value;
+  // JavaScript code to handle the form submission
+  document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form submission
+    const username = document.getElementById('loginUsername').value;
+    const password = document.getElementById('password').value;
     
-    // Mock validation for registration fields
-    // If all fields have values, show the success message and hide any errors
-    if (name && nshe && email) {
-      document.getElementById('registrationSuccess').style.display = 'block';
-      document.getElementById('registrationError').style.display = 'none';
+    // Mock validation for login credentials
+    if (username === "guest7890" && password === "1234567890") {
+      document.getElementById('loginSuccess').style.display = 'block';
+      document.getElementById('loginError').style.display = 'none';
+      // Redirect to dashboard.html after a short delay
+      setTimeout(() => {
+        window.location.href = 'dashboard.html';
+      }, 2000);
     } else {
-      // If validation fails, show error message and hide the success message
-      document.getElementById('registrationError').style.display = 'block';
+      document.getElementById('loginError').style.display = 'block';
     }
   });
 
-  // Add click event listeners to all elements with the 'login-link' class
-  document.querySelectorAll('.login-link').forEach(link => {
+  // JavaScript to redirect to register.html when .register-link is clicked
+  document.querySelectorAll('#register-link .link').forEach(link => {
     link.addEventListener('click', function() {
-      // Redirect to login.html when clicked
-      window.location.href = 'login.html';
+      window.location.href = 'register.html';
+    });
+  });
+
+  // JavaScript to redirect to register.html when .register-link is clicked
+  document.querySelectorAll('#admin-link .link').forEach(link => {
+    link.addEventListener('click', function() {
+      window.location.href = 'admin-login.html';
     });
   });
 </script>
 
 </body>
 </html>
+<style>
+  /* Basic styling for the Login page layout */
+  body {
+    font-family: Arial, sans-serif;
+    background: url('CSN_Campus.jpg') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+  }
+</style>
