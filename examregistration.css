@@ -1,6 +1,6 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #173ea8;
+  background-color: #9BC2CF;
   margin: 0;
   padding: 0;
   position: relative; /* Establish a positioning context for pseudo-elements and absolute positioning */
@@ -42,7 +42,7 @@ body::after {
   max-width: 500px;
   margin: 50px auto;
   padding: 20px;
-  background-color: #dacb07;
+  background-color:#EDE1D1;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   position: relative; /* So it doesn't overlap with the pseudo-elements */
