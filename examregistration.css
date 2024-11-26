@@ -191,3 +191,10 @@ input[type="submit"] {
 .date.inactive:hover {
   color: #ffffff;
 }
+
+#submit {
+  border: none;
+  padding: 0.4em 0.6em;
+  font-size: 1em;
+  border-radius: 10px;
+}
