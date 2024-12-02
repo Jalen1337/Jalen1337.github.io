@@ -43,6 +43,7 @@ label {
 }
 
 input[type="text"],
+input[type="email"],
 input[type="password"] {
   width: 95%;
   padding: 10px;
@@ -100,6 +101,16 @@ ul li a:hover {
   font-size: 0.9em;
   color: blue;
   cursor: pointer;
+}
+
+/* visited link */
+a:visited {
+  color: purple;
+}
+
+/* mouse over link */
+a:hover {
+  color: white;
 }
 
 /* Calendar styles */
