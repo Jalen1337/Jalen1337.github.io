@@ -6,18 +6,18 @@ body {
   position: relative; /* Establish a positioning context for pseudo-elements and absolute positioning */
 }
 
-body::before {
+
+
+body::after {
   content: "";
-  position: fixed; /* Ensures the borders stay at the top of the viewport */
-  top: 0;
+  position: fixed; /* Inner blue border on top of the white border */
+  top: 2px; /* Creates the white border space */
   left: 0;
   width: 100%;
-  height: 14px; /* Total height including both blue and white borders */
-  background-color: white; /* Outer white border */
-  z-index: 10; /* Ensure it appears above other elements */
+  height: 70px; /* Thickness of the blue border */
+  background-color: #000000; /* Blue border color */
+  z-index: 11; /* Ensures it stays above the white border */
 }
-
-
 .top-center-image {
   position: fixed; /* Makes the image stick to the top center */
   top: 5px; /* Aligns with the borders */
