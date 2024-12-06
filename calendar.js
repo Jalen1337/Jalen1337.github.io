@@ -2,6 +2,8 @@ const monthYearElement = document.getElementById('monthYear');
 const datesElement = document.getElementById('dates');
 const prevButton = document.getElementById('prevButton');
 const nextButton = document.getElementById('nextButton');
+const dateInput = document.getElementById('dateInput');
+const selectedDateDisplay = document.getElementById('selectedDateDisplay');
 
 let currentDate = new Date();
 
@@ -34,7 +36,8 @@ const updateCalendar = () => {
                         currentMonth === new Date().getMonth() &&
                         i === new Date().getDate();
         const activeClass = isToday ? 'active' : '';
-        datesHTML += `<div class="date ${activeClass}">${i}</div>`;
+        const dateValue = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(i).padStart(2, '0')}`;
+        datesHTML += `<div class="date ${activeClass}" data-date="${dateValue}">${i}</div>`;
     }
 
     // Add leading days from the next month to fill the row
@@ -45,6 +48,22 @@ const updateCalendar = () => {
 
     // Update the dates container
     datesElement.innerHTML = datesHTML;
+
+    // Add click event listeners to active dates
+    document.querySelectorAll('.date:not(.inactive)').forEach(dateElement => {
+        dateElement.addEventListener('click', () => {
+            // Get the selected date from the data attribute
+            const selectedDate = dateElement.getAttribute('data-date');
+
+            // Update the hidden input and visible date display
+            dateInput.value = selectedDate;
+            selectedDateDisplay.textContent = `Selected Date: ${selectedDate}`;
+
+            // Highlight the selected date
+            document.querySelectorAll('.date.selected').forEach(el => el.classList.remove('selected'));
+            dateElement.classList.add('selected');
+        });
+    });
 };
 
 // Handle navigation
