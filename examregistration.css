@@ -188,6 +188,12 @@ a:hover {
   transition: 0.2s;
 }
 
+.date.selected {
+  background-color: #007bff;
+  color: white;
+  border-radius: 50%;
+}
+
 .date:hover,
 .date:active {
   background: #ff5869;
