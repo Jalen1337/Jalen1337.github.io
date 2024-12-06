@@ -13,24 +13,37 @@
     <h2>CSN Student Exam Selection</h2>
     <form>
       <!-- Subject Dropdown -->
-      <label for="subject">Subject:</label>
-      <select name="subject" id="subject" required>
-        <option value="" disabled selected>Please select a subject</option>
-        <option value="math">Math</option>
-        <option value="english">English</option>
-        <option value="science">Science</option>
-      </select>
-      <br><br>
+      <fieldset class="examselection">
+        <legend>Subject</legend>
+        <label for="Math">
+          <input type="radio" name="subject" id="math" value="Math">
+          Math
+        </label>
+        <label for="English">
+          <input type="radio" name="subject" id="english" value="English">
+          English
+        <label for="Science">
+          <input type="radio" name="subject" id="science" value="Science">
+          Science
+        </label>
+      </fieldset>
 
       <!-- Campus Dropdown -->
-      <label for="campus">Campus:</label>
-      <select name="campus" id="campus" required>
-        <option value="" disabled selected>Please select a campus</option>
-        <option value="charleston">Charleston</option>
-        <option value="cheyenne">Cheyenne</option>
-        <option value="henderson">Henderson</option>
-      </select>
-      <br><br>
+      <fieldset class="campusselection">
+        <legend>Campus</legend>
+        <label for="Charleston">
+          <input type="radio" name="campus" id="charleston" value="Charleston">
+          Charleston
+        </label>
+        <label for="Henderson">
+          <input type="radio" name="campus" id="henderson" value="Henderson">
+          Henderson
+        </label>
+        <label for="North Las Vegas">
+          <input type="radio" name="campus" id="northlasvegas" value="North_Las_Vegas">
+          North Las Vegas
+        </label>
+    </fieldset>
 
       <!-- Calendar -->
       <input type="hidden" name="date" id="dateInput" required>
