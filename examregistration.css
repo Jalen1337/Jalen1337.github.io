@@ -207,3 +207,22 @@ a:hover {
 .date.inactive:hover {
   color: #ffffff;
 }
+
+/* Radio Button */
+.examselection {
+  display: flex;
+  flex-direction: row;
+}
+.examselection label{
+  padding: 5px;
+  width: 50%;
+}
+
+.campusselection {
+  display: flex;
+  flex-direction: row;
+}
+.campusselection label{
+  padding: 5px;
+  width: 50%;
+}
