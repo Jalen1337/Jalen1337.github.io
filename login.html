@@ -6,66 +6,55 @@
   <link rel="stylesheet" href="examregistration.css">
   <title>CSN Student Dashboard Login</title>
 </head>
-
 <body class="beforelogin">
-<div class="container">
-  <h2>CSN Student Dashboard Login</h2>
-  <form id="loginForm">
-    <div class="form-group">
-      <label for="loginUsername">Username</label>
-      <input type="text" id="loginUsername" name="loginUsername" required>
-    </div>
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input type="password" id="password" name="password" required>
-    </div>
-    <input type="submit" value="Log In">
-    <p class="success" id="loginSuccess">Login successful! Redirecting to your dashboard...</p>
-    <p class="error" id="loginError">Incorrect login credentials. Please try again.</p>
-  </form>
-  
-  <!-- Link with register-link class, no href needed due to JavaScript handling -->
-      <ul>
-          <li><a href="Register.html">Don't have an account? Register here.</a></li>
-          <li><a href="admin-login.html">Admin login here.</a></li>
-      </ul>
-</div>
-</body>
+  <div class="container">
+    <h2>CSN Student Dashboard Login</h2>
+    <form id="loginForm">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <input type="submit" value="Log In">
+      <p class="success" id="loginSuccess" style="display:none;">Login successful! Redirecting to your dashboard...</p>
+      <p class="error" id="loginError" style="display:none;">Incorrect login credentials. Please try again.</p>
+    </form>
+    <ul>
+      <li><a href="register.html">Don't have an account? Register here.</a></li>
+      <li><a href="admin-login.html">Admin login here.</a></li>
+    </ul>
+  </div>
 
 <script>
-  // JavaScript code to handle the form submission
-  document.getElementById('loginForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent form submission
-    const username = document.getElementById('loginUsername').value;
-    const password = document.getElementById('password').value;
-    
-    // Mock validation for login credentials
-    if (username === "guest7890" && password === "1234567890") {
-      document.getElementById('loginSuccess').style.display = 'block';
-      document.getElementById('loginError').style.display = 'none';
-      // Redirect to dashboard.html after a short delay
-      setTimeout(() => {
-        window.location.href = 'dashboard.html';
-      }, 2000);
-    } else {
-      document.getElementById('loginError').style.display = 'block';
-    }
-  });
+    // Login form handling
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent default form submission
 
-  // JavaScript to redirect to register.html when .register-link is clicked
-  document.querySelectorAll('#register-link .link').forEach(link => {
-    link.addEventListener('click', function() {
-      window.location.href = 'register.html';
-    });
-  });
+      const username = document.getElementById('username').value; // Corrected ID here
+      const password = document.getElementById('password').value;
 
-  // JavaScript to redirect to register.html when .register-link is clicked
-  document.querySelectorAll('#admin-link .link').forEach(link => {
-    link.addEventListener('click', function() {
-      window.location.href = 'admin-login.html';
+      // Get existing users from localStorage
+      const users = JSON.parse(localStorage.getItem('users')) || {};
+
+      // Check if username and password match
+      if (users[username] && users[username] === password) {
+        // Successful login
+        document.getElementById('loginSuccess').style.display = 'block';
+        document.getElementById('loginError').style.display = 'none';
+
+        // Redirect to a dashboard or welcome page
+        setTimeout(() => {
+          window.location.href = 'dashboard.html'; // Change to your actual dashboard page
+        }, 1500);
+      } else {
+        // Incorrect login credentials
+        document.getElementById('loginError').style.display = 'block';
+        document.getElementById('loginSuccess').style.display = 'none';
+      }
     });
-  });
 </script>
-
 </body>
 </html>
