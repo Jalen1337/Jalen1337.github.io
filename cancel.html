@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="examregistration.css">
+	<title>Exam Cancellation</title>
+</head>
+<body>
+	<div class="container">
+	<h2> Exams </h2>
+		<!-- Shows what exams the user has -->
+		<div class="form-group">
+			<ul>
+				<li>Exam 1</li>
+				<li>Exam 2</li>
+				<li>Exam 3</li>
+			</ul>
+		</div>
+		<form>
+		<fieldset class="examselection">
+			<legend>Current Registered Exams</legend>
+				<label for="1">
+				  <input type="radio" name="subject" id="exam1" value="1">
+				  Exam 1
+				</label>
+				<label for="2">
+				  <input type="radio" name="subject" id="exam2" value="2">
+				  Exam 2
+				</label>
+				<label for="3">
+				  <input type="radio" name="subject" id="exam3" value="3">
+				  Exam 3
+				</label>
+		</fieldset>
+		<!-- The Submit button -->
+		<br><input type="submit" value="Cancel">
+		</form>
+	</div>
+</body>
+</html>
