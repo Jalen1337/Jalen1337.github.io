@@ -17,8 +17,12 @@
   <!-- Button to check exam status -->
   <button class="dashboard-btn status-btn" onclick="checkExamStatus()">Want to check on the status of your exam?</button>
   
+  <!-- Button to cancel exam -->
+  <button class="dashboard-btn cancel-btn" onclick="cancelExam()">Cancel Exam</button>
+  
   <!-- Button to log out -->
   <button class="dashboard-btn logout-btn" onclick="logout()">Log out</button>
+  
 </div>
 
 <script>
@@ -34,6 +38,12 @@
     alert("Redirecting to exam status page...");
     // Here you would add redirection logic to the status-checking page
     window.location.href = 'exam_status.html'; // Hypothetical page
+  }
+  
+  function cancelExam() {
+    alert("Redirecting to exam cancel page...");
+    // Here you would add redirection logic to the status-checking page
+    window.location.href = 'cancel.html'; // Hypothetical page
   }
 
   // Function to log out and redirect to login page
