@@ -7,7 +7,6 @@
   <title>CSN Admin Dashboard Login</title>
 </head>
 <body class="beforelogin">
-
 <div class="container">
   <h2>CSN Admin Dashboard Login</h2>
   <form id="loginForm">
@@ -38,9 +37,14 @@
     const password = document.getElementById('password').value;
     
     // Mock validation for login credentials
-    if (email === "@csn.edu" && password === "password123") {
+    if (email === "gg@csn.edu" && password === "password123") { //test login info here
       document.getElementById('loginSuccess').style.display = 'block';
       document.getElementById('loginError').style.display = 'none';
+	  
+	// Redirect to a admin_dashboard or welcome page
+    setTimeout(() => {
+        window.location.href = 'admin_dashboard.html'; // Change to your actual dashboard page
+    }, 1500);
     } else {
       document.getElementById('loginError').style.display = 'block';
     }
