@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="examregistration.css">
+  <title>CSN Student Exam Confirmation</title>
+</head>
+
+<body>
+  <div class="container">
+    <h3>Success! Here is your exam info:</h3>
+      <p id="generatedID">Exam ID: 
+        </p> 
+      <p id="selectedSubject">Subject: </p>
+      <p id="selectedCampus">Campus: </p>
+      <p id="selectedDate">Date: </p>
+      <p id="selectedTime">Time: </p>
+  </div>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const subject = urlParams.get('subject');
+    const campus = urlParams.get('campus');
+    const date = urlParams.get('date');
+    const time = urlParams.get('time');
+    const examID = urlParams.get('examID');
+
+    document.getElementById('selectedSubject').textContent += subject;
+    document.getElementById('selectedCampus').textContent += campus;
+    document.getElementById('selectedDate').textContent += date;
+    document.getElementById('selectedTime').textContent += time;
+    document.getElementById('generatedID').textContent += examID; 
+
+  </script>
+</body>
+</html>
