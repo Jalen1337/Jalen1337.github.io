@@ -10,13 +10,17 @@
 <body>
   <div class="container">
     <h3>Success! Here is your exam info:</h3>
-      <p id="generatedID">Exam ID: 
-        </p> 
+      <p id="generatedID">Exam ID: </p> 
       <p id="selectedSubject">Subject: </p>
       <p id="selectedCampus">Campus: </p>
       <p id="selectedDate">Date: </p>
       <p id="selectedTime">Time: </p>
-  </div>
+      <!--reserve another exam button-->
+      <button class="dashboard-btn reserve-btn" onclick="reserveExam()">Want to reserve aonther exam?</button>
+      <!--back to dasboard-->
+      <button class="dashboard-btn reserve-btn" onclick="dashBoard()">Back to Dashboard</button>
+  
+    </div>
 
   <script>
     const urlParams = new URLSearchParams(window.location.search);
@@ -30,7 +34,21 @@
     document.getElementById('selectedCampus').textContent += campus;
     document.getElementById('selectedDate').textContent += date;
     document.getElementById('selectedTime').textContent += time;
-    document.getElementById('generatedID').textContent += examID; 
+    document.getElementById('generatedID').textContent += examID;
+
+    // Function for reserving an exam
+    function reserveExam() {
+      alert("Redirecting to exam reservation page...");
+      // Here you would add redirection logic to the reservation page
+      window.location.href = 'reserve_exam.html'; // Hypothetical page
+    }
+  
+    // Function for checking exam status
+    function dashBoard() {
+      alert("Redirecting to Dashboard page...");
+      // Here you would add redirection logic to the status-checking page
+      window.location.href = 'dashboard.html'; // Hypothetical page
+    }
 
   </script>
 </body>
