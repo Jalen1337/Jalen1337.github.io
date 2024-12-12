@@ -12,8 +12,7 @@
 <body>
   <div class="container">
     <h2>CSN Student Exam Selection</h2>
-    <form>
-      <!-- Subject Dropdown -->
+    <form id="examForm"> 
       <fieldset class="examselection">
         <legend>Subject</legend>
         <select name="subject" id="subject" required>
@@ -25,7 +24,6 @@
       </fieldset>
       <br>
 
-      <!-- Campus Dropdown -->
       <fieldset class="campusselection">
         <legend>Campus</legend>
         <label for="Charleston">
@@ -43,7 +41,6 @@
     </fieldset>
     <br><br>
 
-      <!-- Calendar -->
       <input type="hidden" name="date" id="dateInput" required>
       <label for="date">Date:</label>
       <div class="calendar">
@@ -69,7 +66,6 @@
       </div>
       <p id="selectedDateDisplay" class="selected-date">Selected Date: None</p>
 
-      <!-- Time Dropdown -->
       <fieldset class="examselection">
         <legend>Time</legend>
         <select name="time" size="5">  
@@ -82,11 +78,57 @@
       </fieldset>
       <br><br>
 
-      <!-- Submit Button -->
       <input type="submit" value="Submit">
     </form>
   </div>
 
   <script src="calendar.js"></script>
+  <script>
+    const examForm = document.getElementById('examForm');
+
+    examForm.addEventListener('submit', (event) => {
+      event.preventDefault(); // Prevent default form submission
+
+      // Get form data
+      const subject = document.getElementById('subject').value;
+      const campus = document.querySelector('input[name="campus"]:checked').value;
+      const date = document.getElementById('dateInput').value;
+      const time = document.querySelector('select[name="time"]').value;
+
+      // Map subject to integer value
+      const subjectCode = {
+        "Math": "10",
+        "English": "20",
+        "Science": "30"
+      };
+
+      // Map campus to integer value
+      const campusCode = {
+        "Charleston": "01",
+        "Henderson": "02",
+        "North_Las_Vegas": "03"
+      };
+
+      // Extract date and time components
+      const dateParts = date.split('-'); // Assuming date format is YYYY-MM-DD
+      const month = dateParts[1].padStart(2, '0');
+      const day = dateParts[2].padStart(2, '0');
+
+      // Extract hour from time (e.g., "9am" -> "09")
+      const timeHour = time.slice(0, 2); 
+
+      // Generate Exam ID
+      const examID = subjectCode[subject] + campusCode[campus] + month + day + timeHour;
+
+      // Redirect to confirmation page with query parameters
+      const params = new URLSearchParams();
+      params.append('subject', subject);
+      params.append('campus', campus);
+      params.append('date', date);
+      params.append('time', time);
+      params.append('examID', examID); 
+      window.location.href = `confirmation.html?${params}`; 
+    });
+  </script>
 </body>
 </html>
